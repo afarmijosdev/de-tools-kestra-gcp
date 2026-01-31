@@ -1,0 +1,25 @@
+id: 02_1_test_python
+namespace: zoomcamp
+
+description: This flow will install the pip package in a Docker container, and use kestra's Python library to generate outputs (number of downloads of the Kestra Docker image) and metrics (duration of the script).
+
+tasks:
+  - id: collect_stats
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.scripts.runner.docker.Docker
+    containerImage: python:slim
+    dependencies:
+      - requests
+      - kestra
+    script: |
+      from kestra import Kestra
+      import requests
+      print("Hello, World!")
+      url_tripData=f'https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2025-11.parquet'
+      print(f'url_tripData:{url_tripData}')
+      
+      outputs = {
+          'green_tripdata': url_tripData
+      }
+      Kestra.outputs(outputs)
