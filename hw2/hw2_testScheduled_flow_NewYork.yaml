@@ -1,0 +1,16 @@
+id: hw2_testScheduled_flow_NewYork
+namespace: zoomcamp
+description: |
+  To test schedule trigger with default time zone (UTC)
+
+
+tasks:
+  - id: log
+    type: io.kestra.plugin.core.log.Log
+    message: It's {{ trigger.date ?? taskrun.startDate | date("HH:mm") }}
+
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: 30 1 * * *
+    timezone: America/New_York
