@@ -6,7 +6,7 @@ The homework solution is in this path
 
 ## Taxi per year
 
-The original file 04_postgres_taxi.yaml was renamed to hw2/hw2_postgres_taxi_per_month.yml. The difference is the destination table name, which includes the year as sufix. For the exercise the next table were created
+The original file `04_postgres_taxi.yaml` was renamed to `hw2/hw2_postgres_taxi_per_month.yml`. The difference is the destination table name, which includes the year as sufix. For the exercise the next table were created
 
     public.green_tripdata_2020
     public.yellow_tripdata_2020
